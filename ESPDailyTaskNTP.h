@@ -39,14 +39,13 @@ V1.0 2016-8-3
 class ESPDailyTaskNTP {
 
   public:
-    ESPDailyTaskNTP(int hours,int minutes, char *mySSID, char *myPASSWORD);
-    ESPDailyTaskNTP(int hours,int minutes, char *mySSID, char *myPASSWORD, byte RESET_PIN);
+    ESPDailyTaskNTP(int hours,int minutes, double timeZone, char *mySSID, char *myPASSWORD);
+    ESPDailyTaskNTP(int hours,int minutes, double timeZone, char *mySSID, char *myPASSWORD, byte RESET_PIN);
 
     void sleepOneDay();
     void backToSleep();
 
   private:
-    void backToSleep(boolean wifiOn);
     void printRtcMem(String place);
     void processCurrentTime(int time);
     int adjustTime();
