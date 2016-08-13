@@ -27,16 +27,23 @@ SOFTWARE.
 V1.0 2016-8-3
 
 */
-#include <credentials.h>
+
 #include <ESP8266WiFi.h>
 #include <ESPDailyTaskNTP.h>
 #include <SNTPtime.h>
 
 SNTPtime NTPwork("ch.pool.ntp.org");
 
+#ifdef D2
 #define RESET_PIN D2
+#else
+#define RESET_PIN 4
+#endif
 
-ESPDailyTaskNTP dailyTask(13, 9, my_SSID, my_PASSWORD, RESET_PIN); // Hour to do the task
+#define my_SSID "YOUR_SSID"
+#define my_PASSWORD "YOUR_WIFI_PASSWORD"
+
+ESPDailyTaskNTP dailyTask(13, 9, 1, my_SSID, my_PASSWORD, RESET_PIN); // Hour to do the task
 
 void setup() {
   Serial.begin(115200);
@@ -61,4 +68,3 @@ void setup() {
 void loop() {
   // sleeping so wont get here
 }
-
