@@ -3,7 +3,7 @@
 OncePerDay example for ESP8266
 This routine gets the unixtime from a NTP server and adjusts it to the time zone and the
 Middle European summer time if requested
-   
+
 Copyright (c) 2016 Andreas Spiess
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,9 +24,18 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-V1.0 2016-8-3
+V1.1 2016-8-15
 
 */
+
+/*
+Credentials.h
+
+#define my_SSID "     "  // ssid of your accesspoint
+#define my_PASSWORD "     "  // password of access point
+
+ */
+
 #include <credentials.h>
 #include <ESP8266WiFi.h>
 #include <ESPDailyTaskNTP.h>
@@ -41,7 +50,7 @@ ESPDailyTaskNTP dailyTask(12, 0, 1.0, my_SSID, my_PASSWORD, RESET_PIN); // Hour 
 void setup() {
   Serial.begin(115200);
   Serial.println();   Serial.println("Start");   Serial.println();
-  
+
   dailyTask.sleepOneDay();
 
   // ------------------ put the code for your daily task here -------------------------------
@@ -61,4 +70,3 @@ void setup() {
 void loop() {
   // sleeping so wont get here
 }
-
