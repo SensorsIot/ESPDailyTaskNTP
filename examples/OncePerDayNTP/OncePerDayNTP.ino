@@ -29,19 +29,23 @@ V1.1 2016-8-15
 */
 
 /*
-Credentials.h
+Content of credential.h
+ 
+char my_SSID[]= " ";  // ssid of your accesspoint
+char my_PASSWORD[]= " ";  // password of access point
 
-#define my_SSID "     "  // ssid of your accesspoint
-#define my_PASSWORD "     "  // password of access point
+ Put credentials.h in libraries folder
 
- */
+*/
 
 #include <credentials.h>
 #include <ESP8266WiFi.h>
 #include <ESPDailyTaskNTP.h>
 #include <SNTPtime.h>
 
-SNTPtime NTPwork("ch.pool.ntp.org");
+char SNTP_SERVER[]="ch.pool.ntp.org";
+
+SNTPtime NTPwork(SNTP_SERVER);
 
 #define RESET_PIN D2
 
