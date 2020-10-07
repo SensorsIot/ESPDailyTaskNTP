@@ -34,7 +34,7 @@ Content of credential.h
 char my_SSID[]= " ";  // ssid of your accesspoint
 char my_PASSWORD[]= " ";  // password of access point
 
- Put credentials.h in libraries folder
+ Move credentials.h into the Arduino libraries folder (top level)
 
 */
 
